@@ -9,7 +9,10 @@ export const INITIAL_SETTINGS: AppSettings = {
   maintenanceMode: false,
   officialUsdRate: 50, // 1 USD = 50 New SYP
   newToOldRatio: 100, // 1 New SYP = 100 Old SYP
-  logoUrl: "https://picsum.photos/id/100/100/100"
+  logoUrl: "https://picsum.photos/id/100/100/100",
+  logoScale: 100,
+  logoX: 50,
+  logoY: 50
 };
 
 export const BANKNOTES_DATA: Banknote[] = [

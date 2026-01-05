@@ -16,6 +16,9 @@ export interface AppSettings {
   officialUsdRate: number;
   newToOldRatio: number;
   logoUrl: string;
+  logoScale: number;
+  logoX: number;
+  logoY: number;
 }
 
 export enum NumberSystem {
@@ -24,3 +27,5 @@ export enum NumberSystem {
 }
 
 export type AdminTab = 'system' | 'identity' | 'banknotes' | 'alerts';
+
+export type AppView = 'home' | 'market' | 'calculator' | 'converter' | 'gallery' | 'verify';
