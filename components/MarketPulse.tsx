@@ -10,50 +10,33 @@ interface MarketPulseProps {
 
 const MarketPulse: React.FC<MarketPulseProps> = ({ settings, numberSystem }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div className="glass p-6 rounded-3xl border-emerald-500/20 relative overflow-hidden group">
-        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-          </svg>
-        </div>
-        <div className="relative z-10">
-          <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-1">سعر الصرف الرسمي</span>
-          <div className="text-3xl font-black mb-2">
-            1$ = {convertNumbers(settings.officialUsdRate, numberSystem)} ل.س
+    <div className="space-y-4">
+      {/* Main card */}
+      <div className="glass p-6 rounded-[32px] border-emerald-500/20 relative overflow-hidden group">
+        <div className="relative z-10 flex items-center justify-between">
+          <div>
+            <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest block mb-1">صرف الدولار الرسمي</span>
+            <div className="text-4xl font-black">
+              1$ = {convertNumbers(settings.officialUsdRate, numberSystem)} <span className="text-sm font-bold opacity-50">ل.س</span>
+            </div>
           </div>
-          <p className="text-xs text-slate-400">سعر ثابت معتمد من قبل البنك المركزي لعام 2026.</p>
+          <div className="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-3xl">🇺🇸</div>
         </div>
       </div>
 
-      <div className="glass p-6 rounded-3xl border-indigo-500/20 relative overflow-hidden group">
-        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
-        </div>
-        <div className="relative z-10">
-          <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider block mb-1">حالة استقرار السوق</span>
-          <div className="text-3xl font-black mb-2 flex items-center gap-2">
-            مستقر تماماً
-            <span className="flex h-3 w-3 rounded-full bg-emerald-500"></span>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="glass p-4 rounded-[24px] border-indigo-500/10 text-center">
+          <span className="text-[10px] font-bold text-indigo-400 block mb-1">استقرار السوق</span>
+          <div className="text-sm font-black flex items-center justify-center gap-2">
+            مستقر 
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
           </div>
-          <p className="text-xs text-slate-400">لا توجد تذبذبات متوقعة خلال الربع الأول من العام.</p>
         </div>
-      </div>
-
-      <div className="glass p-6 rounded-3xl border-amber-500/20 relative overflow-hidden group">
-        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <div className="relative z-10">
-          <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block mb-1">معامل التحويل</span>
-          <div className="text-3xl font-black mb-2">
+        <div className="glass p-4 rounded-[24px] border-amber-500/10 text-center">
+          <span className="text-[10px] font-bold text-amber-400 block mb-1">معامل التحويل</span>
+          <div className="text-sm font-black">
             1 : {convertNumbers(settings.newToOldRatio, numberSystem)}
           </div>
-          <p className="text-xs text-slate-400">كل ليرة جديدة واحدة تقابل مائة ليرة من الإصدار القديم.</p>
         </div>
       </div>
     </div>
